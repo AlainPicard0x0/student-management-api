@@ -2,6 +2,7 @@ package com.alain.student_management_api;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.Period;
 
 // Use @Table to rename our Student entity to "student" (all lowercase)
 @Entity
@@ -44,8 +45,59 @@ public class Student {
     }
 
     public Student() {
-
     }
 
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public String getFirstName() {
+        return firstName;
+    }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public LocalDate getDob() {
+        return dob;
+    }
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+
+    public Integer getAge() {
+        return Period.between(this.dob, LocalDate.now()).getYears();
+    }
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id = " + id +
+                ", firstName = '" + firstName + '\'' +
+                ", lastName = '" + lastName + '\'' +
+                ", email = '" + email + '\'' +
+                ", dob = " + dob +
+                ", age = " + age +
+                '}';
+    }
 }
