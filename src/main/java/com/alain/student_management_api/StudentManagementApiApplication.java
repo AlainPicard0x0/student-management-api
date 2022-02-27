@@ -25,11 +25,10 @@ public class StudentManagementApiApplication {
 	@Bean
 	public CommandLineRunner run() {
 		return args -> {
-			Student alain = new Student("Alain", "Picard", "alain@gmail", LocalDate.of(1999, Month.FEBRUARY, 26));
-			Student elon = new Student("elon", "musk", "elon@gmail", LocalDate.of(1985, Month.MARCH, 15));
+			Student alain = new Student("Alain", "Picard", "alain@gmail.com", LocalDate.of(1999, Month.FEBRUARY, 26));
+			Student elon = new Student("elon", "musk", "elon@gmail.com", LocalDate.of(1985, Month.MARCH, 15));
 			Student michelle = new Student("Michelle", "Obama", "michelle@gmail.com", LocalDate.of(1984, Month.JULY, 5));
 			studentRepository.saveAll(List.of(alain, elon, michelle));
 		};
 	}
-
 }
