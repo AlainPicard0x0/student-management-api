@@ -17,7 +17,7 @@ public class StudentService {
     private StudentRepository studentRepository;
 
     // Method to return list of all students in database.
-    public List<Student> getStudents() {
+    public List<Student> findStudents() {
         return studentRepository.findAll();
     }
 
