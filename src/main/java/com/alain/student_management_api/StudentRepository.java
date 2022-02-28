@@ -10,6 +10,6 @@ import java.util.Optional;
 public interface StudentRepository extends JpaRepository<Student, Long> {
 
     // Create custom query to find student by their email address
-    @Query("SELECT s FROM student s WHERE s.email = ?1")
+    @Query("SELECT s FROM Student s WHERE s.email = ?1")
     Optional<Student> findStudentByEmail(String email);
 }
