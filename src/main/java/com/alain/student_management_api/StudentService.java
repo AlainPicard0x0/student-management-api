@@ -23,6 +23,17 @@ public class StudentService {
         Student student = studentRepository.findById(id).orElseThrow(() -> new IllegalStateException("Student with id: " + id + " not found"));
         return student;
     }
+
+    // Method to add new student to database
+    public void addStudent(Student student) {
+        Optional<Student> optionalStudent = studentRepository.findStudentByEmail(student.getEmail());
+        if(optionalStudent.isPresent()) {
+            throw new IllegalStateException("Student with that email already in use");
+        }
+        studentRepository.save(student);
+    }
+
     
+
 
 }
