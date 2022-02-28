@@ -1,10 +1,7 @@
 package com.alain.student_management_api;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,6 +21,11 @@ public class StudentController {
     @GetMapping(path = "{studentId}")
     public Student getStudent(@PathVariable("studentId") Long id) {
         return studentService.findStudent(id);
+    }
+
+    @PostMapping
+    public void addNewStudent(@RequestBody Student student) {
+        studentService.addStudent(student);
     }
 
 }
