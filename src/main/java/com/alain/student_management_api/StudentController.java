@@ -1,8 +1,10 @@
 package com.alain.student_management_api;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -37,7 +39,9 @@ public class StudentController {
         studentService.deleteStudent(id);
     }
 
-    // TODO
-    // Add update method to controller.
-
+    // Handle PUT requests at route: api/student{studentId} (Find student by their id and update the fields provided).
+    @PutMapping(path = "{studentId}")
+    public void updateStudent(@PathVariable("studentId") Long id, @RequestParam(required = false) String firstName, @RequestParam(required = false) String lastName, @RequestParam(required = false) String email, @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate dob) {
+        studentService.updateStudent(id, firstName, lastName, email, dob);
+    }
 }
